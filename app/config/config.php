@@ -11,4 +11,4 @@ define('APPROOT', dirname(__DIR__, 2));
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASSWORD", "");
-define("DB_NAME", "dom");
+define("DB_NAME", "doom");

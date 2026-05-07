@@ -1,4 +1,4 @@
-<?php include(__DIR__ . "/layout/header.php") ?>
+<?php include(__DIR__ . "/../layout/header.php") ?>
 
 <style>
 	body {
@@ -12,20 +12,14 @@
 
 <main>
 
-	<form method="post" action="<?= BASEURL ?>/login">
+	<form method="post" action="<?= BASEURL ?>/user/login">
 		<table>
-			<?php if (!empty($data["username"])): ?>
-				<tr>
-					<p>Username: <?= $data["username"] ?></p>
-					<p>Password: <?= $data["password"] ?></p>
-				</tr>
-			<?php endif ?>
 			<tr>
 				<td>
-					<label for="username">Username</label>
+					<label for="userID">User ID</label>
 				</td>
 				<td>
-					<input type="text" name="username" id="username">
+					<input type="text" name="userID" id="userID">
 				</td>
 			</tr>
 
@@ -56,4 +50,4 @@
 
 </main>
 
-<?php include(__DIR__ . "/layout/footer.php") ?>
+<?php include(__DIR__ . "/../layout/footer.php") ?>

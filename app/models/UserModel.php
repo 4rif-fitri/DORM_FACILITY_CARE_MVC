@@ -8,17 +8,22 @@ class UserModel extends Model{
 	}
 
 	public function login($data){
-		$name = $data["username"];
+		$userID = $data["userID"];
+		$password = $data["password"];
 
-		$query = "SELECT * FROM users where name = '$name'";
+		$query = "SELECT * FROM user 
+				WHERE userID = '$userID' AND
+				password = '$password'";
 		$result = mysqli_query($this->conn, $query);
-		
+
 		$rows = [];
 
 		while ($row = mysqli_fetch_assoc($result)) {
 			$rows[] = $row;
 		}
 
+		// var_dump($rows);
+		
 		if(!empty($rows)) return true;
 		else return false;
 

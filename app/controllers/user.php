@@ -1,24 +1,25 @@
-<?php 
-class User extends Controller{
+<?php
+class User extends Controller
+{
 
-	public function index(){
+	public function index()
+	{
 		// echo Auth::oauth("guest");
 
-		$this->view("login");
-	
+		$this->view("/guest/login");
 	}
 
-	public function login() {
+	public function login()
+	{
 		// echo Auth::oauth("guest");
-
 		session_start();
 
 		if (isset($_POST["submit"])) {
-			$userName = $_POST["username"];
+			$userID = $_POST["userID"];
 			$password = $_POST["password"];
-		
-			if(empty($userName)){
-				$_SESSION["error"] = "Input username please";
+
+			if (empty($userID)) {
+				$_SESSION["error"] = "Input User ID please";
 				header("Location: " . BASEURL . "/guest/login");
 				exit;
 			}
@@ -29,23 +30,22 @@ class User extends Controller{
 			}
 
 			$data = [
-				"username" => $userName,
+				"userID" => $userID,
 				"password" => $password
 			];
 
 			$status = $this->model("UserModel")->login($data);
 
+			// return true;
 
-			if($status){
+			if ($status) {
 				header("Location: " . BASEURL . "/user/dashboard");
 				exit;
-			}
-			else{
+			} else {
 				$_SESSION["error"] = "Invalid credential";
 				header("Location: " . BASEURL . "/guest/login");
 				exit;
 			}
-
 		}
 
 		// GET request
@@ -55,14 +55,13 @@ class User extends Controller{
 
 		unset($_SESSION["error"]);
 
-		$this->view("guest/login", $data);
+		$this->view("/guest/login", $data);
 	}
 
-	public function dashboard(){
+	public function dashboard()
+	{
 		// echo Auth::oauth("auth");
 
 		$this->view("user/dashboard");
 	}
 }
-
-?>
