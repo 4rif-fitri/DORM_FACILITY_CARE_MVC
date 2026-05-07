@@ -1,4 +1,7 @@
 <?php
+
+require_once __DIR__ . '/../helpers/Mail.php';
+
 class User extends Controller
 {
 
@@ -61,6 +64,18 @@ class User extends Controller
 	public function dashboard()
 	{
 		// echo Auth::oauth("auth");
+
+		$status = Mail::send(
+			"dopymonster@gmail.com",
+			"Welcome",
+			"Terima kasih daftar sistem kami"
+		);
+
+		if ($status) {
+			echo "Email dihantar";
+		} else {
+			echo "Email gagal";
+		}
 
 		$this->view("user/dashboard");
 	}
