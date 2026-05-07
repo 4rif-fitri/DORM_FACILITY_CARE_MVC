@@ -43,11 +43,30 @@
 				<td>
 					<button name="submit" class="btn btn-primary" type="submit">Submit</button>
 				</td>
-				<td></td>
+				<td>
+					<button name="ajax" id="ajax" class="btn btn-warning" type="button">Ajax</button>
+				</td>
 			</tr>
 		</table>
 	</form>
 
 </main>
+
+<script>
+	document.getElementById("ajax").addEventListener("click", e => {
+		$.ajax({
+			url: "<?= BASEURL ?>/user/ajax",
+			method: "POST",
+			data: {
+				userID: "D032410352",
+				password: "abc1q58"
+			},
+			success: respon => {
+				console.log(respon);
+
+			}
+		})
+	})
+</script>
 
 <?php include(__DIR__ . "/../layout/footer.php") ?>

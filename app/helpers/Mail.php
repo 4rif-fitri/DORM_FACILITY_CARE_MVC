@@ -5,10 +5,8 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-class Mail
-{
 
-	public static function send($to, $subject, $body)
+	function send($to, $subject, $body)
 	{
 		$mail = new PHPMailer(true);
 
@@ -33,4 +31,3 @@ class Mail
 			return false;
 		}
 	}
-}

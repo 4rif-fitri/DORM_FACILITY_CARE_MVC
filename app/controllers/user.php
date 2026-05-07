@@ -9,12 +9,14 @@ class User extends Controller
 	{
 		// echo Auth::oauth("guest");
 
-		$this->view("/guest/login");
+		// $this->view("/guest/login");
+		view("/guest/login");
 	}
 
 	public function login()
 	{
 		// echo Auth::oauth("guest");
+
 		session_start();
 
 		if (isset($_POST["submit"])) {
@@ -58,25 +60,43 @@ class User extends Controller
 
 		unset($_SESSION["error"]);
 
-		$this->view("/guest/login", $data);
+		view("/guest/login", $data);
+	}
+
+	public function ajax(){
+		header('Content-Type: application/json');
+
+		$data = [
+			"userID" => $_POST["userID"],
+			"password" => $_POST["password"]
+		];
+
+		$status = $this->model("UserModel")->login($data);
+
+		echo json_encode([
+			"status" => $status,
+			"data" => $data 
+		]);
+
+		exit;
 	}
 
 	public function dashboard()
 	{
 		// echo Auth::oauth("auth");
 
-		$status = Mail::send(
-			"d032410321@student.utem.edu.my",
-			"Welcome",
-			"Terima kasih daftar sistem kami"
-		);
+		// $status = send(
+		// 	"d032410321@student.utem.edu.my",
+		// 	"Welcome",
+		// 	"Terima kasih daftar sistem kami"
+		// );
 
-		if ($status) {
-			echo "Email dihantar";
-		} else {
-			echo "Email gagal";
-		}
+		// if ($status) {
+		// 	echo "Email dihantar";
+		// } else {
+		// 	echo "Email gagal";
+		// }
 
-		$this->view("user/dashboard");
+		view("user/dashboard");
 	}
 }

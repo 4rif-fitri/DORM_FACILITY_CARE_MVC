@@ -1,7 +1,6 @@
 <?php 
 
 class UserModel extends Model{
-	
 	public function login($data){
 		$userID = $data["userID"];
 		$password = $data["password"];
