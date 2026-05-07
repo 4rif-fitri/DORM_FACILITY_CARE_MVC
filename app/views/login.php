@@ -1,4 +1,4 @@
-<?php include(__DIR__ . "/../layout/header.php") ?>
+<?php include(__DIR__ . "/layout/header.php") ?>
 
 <style>
 	body {
@@ -12,7 +12,7 @@
 
 <main>
 
-	<form method="post" action="<?= BASEURL ?>/user/login">
+	<form method="post" action="<?= BASEURL ?>/login">
 		<table>
 			<?php if (!empty($data["username"])): ?>
 				<tr>
@@ -56,4 +56,4 @@
 
 </main>
 
-<?php include(__DIR__ . "/../layout/footer.php") ?>
+<?php include(__DIR__ . "/layout/footer.php") ?>

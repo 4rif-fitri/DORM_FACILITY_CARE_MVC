@@ -4,7 +4,7 @@ class User extends Controller{
 	public function index(){
 		// echo Auth::oauth("guest");
 
-		$this->view("guest/login");
+		$this->view("login");
 	
 	}
 
