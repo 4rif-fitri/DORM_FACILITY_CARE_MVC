@@ -9,7 +9,8 @@ class User extends Controller{
 	}
 
 	public function login() {
-		
+		// echo Auth::oauth("guest");
+
 		session_start();
 
 		if (isset($_POST["submit"])) {
@@ -58,6 +59,8 @@ class User extends Controller{
 	}
 
 	public function dashboard(){
+		// echo Auth::oauth("auth");
+
 		$this->view("user/dashboard");
 	}
 }
