@@ -9,7 +9,7 @@ class Model{
 
 	public function __construct()
 	{
-		// Buat sambungan di dalam constructor
+		//Database connetion
 		$this->conn = mysqli_connect($this->host, $this->user, $this->password, $this->database);
 
 		// Check jika sambungan gagal

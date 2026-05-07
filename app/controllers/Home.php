@@ -3,7 +3,8 @@
 class Home extends Controller{
 	public function index(){
 		$data["name"] = $this->model("UserModel")->getUser();
-
-		$this->view('home/index', $data);
+		Auth::auth("asd");
+		echo "aaa";
+		// $this->view('home/index', $data);
 	}
 }
