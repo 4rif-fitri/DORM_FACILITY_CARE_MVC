@@ -66,7 +66,7 @@ class User extends Controller
 		// echo Auth::oauth("auth");
 
 		$status = Mail::send(
-			"dopymonster@gmail.com",
+			"d032410321@student.utem.edu.my",
 			"Welcome",
 			"Terima kasih daftar sistem kami"
 		);
