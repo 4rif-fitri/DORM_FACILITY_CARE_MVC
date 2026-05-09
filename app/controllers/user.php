@@ -81,6 +81,13 @@ class User extends Controller
 		exit;
 	}
 
+	public function image(){
+		header('Content-Type: application/json');
+		echo json_encode([
+			"data" => $_POST["imgUrl"]
+		]);
+	}
+
 	public function dashboard()
 	{
 		// echo Auth::oauth("auth");
