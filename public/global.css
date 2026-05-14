@@ -1,0 +1,155 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	height: 100vh;
+	width: 100vw;
+}
+
+#_wrapper {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: 15rem 1fr;
+	position: relative;
+	transition: all 0.2s ease;
+}
+
+aside {
+	width: 100%;
+	height: 100%;
+	background-color: #ccc;
+	transition: all 0.2s ease;
+}
+
+#_main nav,
+aside nav {
+	height: 4rem;
+	background-color: #eee;
+	display: flex;
+	align-items: center;
+	padding: 0 1rem;
+	justify-content: space-between;
+}
+
+._img-profile {
+	height: 3rem;
+	width: 3rem;
+	background-color: #fff;
+	border-radius: 50%;
+}
+
+#_main nav label {
+	height: 2.5rem;
+	width: 2.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 0.5rem;
+	cursor: pointer;
+}
+
+#_main nav label ._bar {
+	width: 3rem;
+	height: 7px;
+	background-color: #000;
+	border-radius: 10px;
+	display: none;
+}
+
+aside nav {
+	height: 4rem;
+	background-color: #eaeaea;
+}
+
+body:has(#_bar-checkbox:checked) aside {
+	left: 0%;
+}
+
+._links {
+	height: calc(100% - 4rem);
+	display: grid;
+	grid-template-rows: repeat(auto-fit, 50px);
+	position: relative;
+}
+
+._links a {
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+}
+
+._links a:hover {
+	background-color: #fff;
+}
+
+._links a:nth-child(5) {
+	position: absolute;
+	bottom: 0;
+}
+
+body:has(#_minimize-checkbox:checked) #_wrapper {
+	grid-template-columns: 5rem 1fr;
+}
+
+body:has(#_minimize-checkbox:checked) a:has(p) p {
+	display: none;
+}
+
+@media screen and (max-width:600px) {
+	#_wrapper {
+		grid-template-columns: 1fr;
+	}
+
+	aside {
+		position: absolute;
+		z-index: 10;
+		left: 0;
+		background-color: #ddd;
+		left: -100%;
+		height: calc(100% - 4rem);
+		bottom: 0;
+	}
+
+	#_main nav h3 {
+		display: none;
+	}
+
+	aside nav label {
+		display: flex;
+	}
+
+	#_main nav label ._bar {
+		display: block;
+	}
+
+	aside nav {
+		display: none;
+	}
+
+	._links {
+		margin-top: 1rem;
+		gap: 1rem;
+		place-items: center;
+	}
+
+	._links a {
+		background-color: #fff;
+		text-align: center;
+		width: 90%;
+	}
+}
